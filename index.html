@@ -3,63 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium E-commerce Website</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Premium E-commerce</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Playfair Display', serif; color: #333; background-color: #f7f7f7; }
-        /* Additional styles */
-    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="hero">
-            <h1>Welcome to Our Premium E-commerce Store</h1>
-            <div class="animated-showcase">
-                <!-- Animated product showcase here -->
-            </div>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="hero">
+        <h1>Welcome to Our E-commerce Store</h1>
+        <p>Shop the best products now!</p>
+    </section>
+
+    <section id="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <!-- Products will be dynamically loaded here -->
         </div>
-        <button class="whatsapp-support">Chat with us on WhatsApp</button>
-    </header>
-    <main>
-        <section class="search-filter">
-            <input type="text" id="live-search" placeholder="Search products...">
-            <select id="category-filter">
-                <option value="all">All Categories</option>
-                <option value="category1">Category 1</option>
-                <option value="category2">Category 2</option>
-            </select>
-            <input type="range" id="price-range" min="0" max="1000" value="500">
-        </section>
-        <section class="product-list">
-            <!-- Premium products with ratings and badges -->
-            <div class="product-item">
-                <h2>Product 1</h2>
-                <p>Rating: ⭐⭐⭐⭐⭐</p>
-                <span class="badge">New!</span>
-            </div>
-            <!-- More products... -->
-        </section>
-        <section class="scarcity-indicators">
-            <div class="slots-left">Slots left: 5</div>
-            <div class="people-viewing">People viewing: 10</div>
-            <div class="progress-bar"><span style="width: 50%;">50% sold</span></div>
-        </section>
-        <section class="countdown-timer">
-            <p>Next Sale Countdown: <span id="countdown">3 days 5 hours</span></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Premium E-commerce. All rights reserved.</p>
-    </footer>
-    <script>
-        // Modular JS code for functionalities
-        // Live search functionality
-        // Filter functionality 
-        // Countdown timer 
-        // Pre-order checkout flow with M-Pesa instructions
-        // WhatsApp automation
-        // Google Sheets webhook integration
-    </script>
+    </section>
+
+    <section id="countdown">
+        <h2>Limited Time Offer</h2>
+        <div id="timer"></div>
+    </section>
+
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-drawer"></div>
+    </section>
+</main>
+
+<footer>
+    <div>
+        <h3>Connect With Us</h3>
+        <a href="https://wa.me/your_number">WhatsApp</a>
+    </div>
+</footer>
+
+<script>
+    // Countdown Timer
+    const countdown = () => {
+        const endDate = new Date('2026-12-31T23:59:59');
+        const now = new Date();
+        const totalSeconds = (endDate - now) / 1000;
+
+        const days = Math.floor(totalSeconds / 3600 / 24);
+        const hours = Math.floor(totalSeconds / 3600) % 24;
+        const minutes = Math.floor(totalSeconds / 60) % 60;
+        const seconds = Math.floor(totalSeconds % 60);
+
+        document.getElementById('timer').innerHTML = `<p>${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds Until Offer Ends!</p>`;
+    };
+    setInterval(countdown, 1000);
+</script>
 </body>
 </html>
